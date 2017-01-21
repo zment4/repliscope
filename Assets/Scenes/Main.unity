@@ -234,6 +234,47 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &249232359 stripped
+MonoBehaviour:
+  m_PrefabParentObject: {fileID: 114380514204825280, guid: 723775e49e20d3c4e99ed648d52a9b2f,
+    type: 2}
+  m_PrefabInternal: {fileID: 1300346194}
+  m_Script: {fileID: 11500000, guid: 426c29568aa24c74cb916fef864d5592, type: 3}
+--- !u!114 &732601864 stripped
+MonoBehaviour:
+  m_PrefabParentObject: {fileID: 114380514204825280, guid: 723775e49e20d3c4e99ed648d52a9b2f,
+    type: 2}
+  m_PrefabInternal: {fileID: 47579113}
+  m_Script: {fileID: 11500000, guid: 426c29568aa24c74cb916fef864d5592, type: 3}
+--- !u!1 &917375225
+GameObject:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  serializedVersion: 5
+  m_Component:
+  - component: {fileID: 917375226}
+  m_Layer: 0
+  m_Name: HealthKnob
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &917375226
+Transform:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 917375225}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: -1}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children:
+  - {fileID: 1658983390}
+  m_Father: {fileID: 1706615592}
+  m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1001 &1300346194
 Prefab:
   m_ObjectHideFlags: 0
@@ -292,7 +333,7 @@ GameObject:
   - component: {fileID: 1658983392}
   - component: {fileID: 1658983391}
   m_Layer: 0
-  m_Name: HealthKnob
+  m_Name: Quad
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -305,10 +346,10 @@ Transform:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1658983389}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: -1}
-  m_LocalScale: {x: 1.5, y: 0.0625, z: 1}
+  m_LocalPosition: {x: 0, y: -0.5, z: 0}
+  m_LocalScale: {x: 1.5, y: -0.0625, z: 1}
   m_Children: []
-  m_Father: {fileID: 1706615592}
+  m_Father: {fileID: 917375226}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!23 &1658983391
@@ -375,6 +416,7 @@ GameObject:
   - component: {fileID: 1706615590}
   - component: {fileID: 1706615589}
   - component: {fileID: 1706615588}
+  - component: {fileID: 1706615593}
   m_Layer: 0
   m_Name: HealthSlider
   m_TagString: Untagged
@@ -393,7 +435,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d14b6d527ef9efb47900d44d5d75f507, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  HealthKnob: {fileID: 0}
+  HealthKnob: {fileID: 917375225}
   Height: 8
   Position: 0
 --- !u!23 &1706615589
@@ -458,7 +500,23 @@ Transform:
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 0.5, y: 8, z: 1}
   m_Children:
-  - {fileID: 1658983390}
+  - {fileID: 917375226}
   m_Father: {fileID: 0}
   m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1706615593
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1706615587}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5fb3d86f06c24b348b8e2c8c05a24873, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  MaxHealth: 1
+  CurrentHealth: 0.5
+  HealthSpeed: 0.1
+  LeftSineWaveColorCompare: {fileID: 732601864}
+  RightSineWaveColorCompare: {fileID: 249232359}

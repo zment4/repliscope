@@ -13,6 +13,10 @@ public class SineWaveInputControl : MonoBehaviour {
     private void Start()
     {
         sineWave = GetComponent<SineWave>();
+
+        var targetSineWave = GetComponent<SineWaveColorCompare>().Target;
+        sineWave.WaveLength = targetSineWave.WaveLength;
+        sineWave.Amplitude = targetSineWave.Amplitude;
     }
 
 	// Update is called once per frame

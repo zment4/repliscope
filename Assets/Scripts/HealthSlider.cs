@@ -12,6 +12,6 @@ public class HealthSlider : MonoBehaviour {
         if (!HealthKnob) return;
 
         transform.localScale = new Vector3(transform.localScale.x, Height, transform.localScale.z);
-        HealthKnob.transform.position = new Vector3(transform.position.x, Position, transform.position.z);
+        HealthKnob.transform.position = new Vector3(HealthKnob.transform.position.x, Position, HealthKnob.transform.position.z);
     }
 }

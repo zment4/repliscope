@@ -14,16 +14,17 @@ public class SineWaveWanderer : MonoBehaviour {
 	// Use this for initialization
 	void Awake () {
         sineWave = GetComponent<SineWave>();
-        sineWave.Amplitude = UnityEngine.Random.Range(sineWave.MinAmplitude, sineWave.MaxAmplitude);
-        sineWave.WaveLength = UnityEngine.Random.Range(sineWave.MinWavelength, sineWave.MaxWavelength);
 
         wanderTarget = new Vector2(UnityEngine.Random.Range(-1f, 1f), UnityEngine.Random.Range(-1f, 1f));
         wanderPosition = new Vector2(UnityEngine.Random.Range(-1f, 1f), UnityEngine.Random.Range(-1f, 1f));
         wanderDirection = new Vector2(UnityEngine.Random.Range(-1f, 1f), UnityEngine.Random.Range(-1f, 1f)); ;
-	}
-	
-	// Update is called once per frame
-	void Update () {
+
+        ApplyWandererPosition();
+    }
+
+    // Update is called once per frame
+    void Update ()
+    {
         var newDir = wanderTarget - wanderPosition;
         wanderDirection = Vector3.Lerp(wanderDirection, newDir, Speed * Time.deltaTime);
 
@@ -34,10 +35,15 @@ public class SineWaveWanderer : MonoBehaviour {
             wanderTarget = new Vector2(UnityEngine.Random.Range(-1f, 1f), UnityEngine.Random.Range(-1f, 1f));
         }
 
+        ApplyWandererPosition();
+    }
+
+    private void ApplyWandererPosition()
+    {
         var sineWaveAmplitudeHalf = (sineWave.MaxAmplitude - sineWave.MinAmplitude) / 2f;
-        sineWave.Amplitude = (sineWave.MinAmplitude + sineWaveAmplitudeHalf) + wanderDirection.x * sineWaveAmplitudeHalf;
+        sineWave.Amplitude = (sineWave.MinAmplitude + sineWaveAmplitudeHalf) + wanderPosition.x * sineWaveAmplitudeHalf;
 
         var sineWaveWaveLengthHalf = (sineWave.MaxWavelength - sineWave.MinWavelength) / 2f;
-        sineWave.WaveLength = (sineWave.MinWavelength + sineWaveWaveLengthHalf) + wanderDirection.y * sineWaveWaveLengthHalf;
+        sineWave.WaveLength = (sineWave.MinWavelength + sineWaveWaveLengthHalf) + wanderPosition.y * sineWaveWaveLengthHalf;
     }
 }

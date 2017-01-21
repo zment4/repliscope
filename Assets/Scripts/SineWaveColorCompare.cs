@@ -13,8 +13,13 @@ public class SineWaveColorCompare : MonoBehaviour {
 
     private SineWave sineWave;
 
-	// Use this for initialization
-	void Start () {
+    public float Distance { get; private set; }
+    public float MaxDistance { get { return maxAmplitudeDistance + maxWaveDistance; } }
+
+    public float DistanceNormalized { get { return Distance / MaxDistance; } }
+
+    // Use this for initialization
+    void Start () {
         sineWave = GetComponent<SineWave>();
         sineWave.WaveColor = BaseColor;
         maxAmplitudeDistance = sineWave.MaxAmplitude - sineWave.MinAmplitude;
@@ -27,6 +32,7 @@ public class SineWaveColorCompare : MonoBehaviour {
         float amplitudeDistance = sineWave.Amplitude - Target.Amplitude;
 
         float t = Mathf.Abs((waveDistance / maxWaveDistance + amplitudeDistance / maxAmplitudeDistance) * DistanceFactor);
+        Distance = t;
 
         sineWave.WaveColor = Color.Lerp(TargetColor, BaseColor, t);
 	}
