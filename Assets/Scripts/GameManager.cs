@@ -39,12 +39,12 @@ public class GameManager : MonoBehaviour {
 
         CurrentScore = Mathf.RoundToInt(Time.time - startTime);
 
-        if (PlayerHealth && PlayerHealth.CurrentHealth <= 0f)
+        if (PlayerHealth.CurrentHealth <= 0f)
         {
             EndGame();
         }
 
-        LeftWanderer.Speed = RightWanderer.Speed = CurrentScore / 100f;
+        LeftWanderer.Speed = RightWanderer.Speed = (CurrentScore / 100f) / 4f + (CurrentScore / 100f) * PlayerHealth.CurrentHealth;
     }
 
     private void EndGame()

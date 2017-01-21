@@ -134,6 +134,16 @@ Prefab:
       propertyPath: m_Name
       value: SineWaveParent Left
       objectReference: {fileID: 0}
+    - target: {fileID: 114215339352971996, guid: 723775e49e20d3c4e99ed648d52a9b2f,
+        type: 2}
+      propertyPath: VerticalAxis
+      value: Vertical
+      objectReference: {fileID: 0}
+    - target: {fileID: 114215339352971996, guid: 723775e49e20d3c4e99ed648d52a9b2f,
+        type: 2}
+      propertyPath: HorizontalAxis
+      value: Horizontal
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 723775e49e20d3c4e99ed648d52a9b2f, type: 2}
   m_IsPrefabParent: 0
@@ -192,7 +202,7 @@ Camera:
   m_Enabled: 1
   serializedVersion: 2
   m_ClearFlags: 1
-  m_BackGroundColor: {r: 0.19215687, g: 0.3019608, b: 0.4745098, a: 0}
+  m_BackGroundColor: {r: 0.497, g: 0.46791244, b: 0.358834, a: 0}
   m_NormalizedViewPortRect:
     serializedVersion: 2
     x: 0
@@ -407,20 +417,6 @@ Prefab:
     - target: {fileID: 1854126818475306, guid: 723775e49e20d3c4e99ed648d52a9b2f, type: 2}
       propertyPath: m_Name
       value: SineWaveParent Right
-      objectReference: {fileID: 0}
-    - target: {fileID: 4295965164196614, guid: 723775e49e20d3c4e99ed648d52a9b2f, type: 2}
-      propertyPath: m_LocalPosition.z
-      value: -1
-      objectReference: {fileID: 0}
-    - target: {fileID: 114215339352971996, guid: 723775e49e20d3c4e99ed648d52a9b2f,
-        type: 2}
-      propertyPath: VerticalAxis
-      value: RightVertical
-      objectReference: {fileID: 0}
-    - target: {fileID: 114215339352971996, guid: 723775e49e20d3c4e99ed648d52a9b2f,
-        type: 2}
-      propertyPath: HorizontalAxis
-      value: RightHorizontal
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 723775e49e20d3c4e99ed648d52a9b2f, type: 2}
