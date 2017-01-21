@@ -25,7 +25,7 @@ public class SineWaveWanderer : MonoBehaviour {
     // Update is called once per frame
     void Update ()
     {
-        if (GameManager.Instance.HasGameEnded) return;
+        if (GameManager.HasInstance && GameManager.Instance.HasGameEnded) return;
 
         var newDir = wanderTarget - wanderPosition;
         wanderDirection = Vector3.Lerp(wanderDirection, newDir, Speed * Time.deltaTime);

@@ -5,9 +5,13 @@ using UnityEngine;
 
 public class GameManager : MonoBehaviour {
     public static GameManager Instance;
+    public static bool HasInstance { get { return Instance != null; } }
+
     public PlayerHealth PlayerHealth;
     public SineWaveWanderer LeftWanderer;
     public SineWaveWanderer RightWanderer;
+
+    public GameObject EnableOnEnd;
 
     float startTime;
 
@@ -15,7 +19,7 @@ public class GameManager : MonoBehaviour {
 	void Awake () {
 		if (Instance)
         {
-            DestroyImmediate(this);
+            DestroyImmediate(gameObject);
             Debug.LogWarning("Tried to create another singleton instance!");
             return;
         }
@@ -50,5 +54,23 @@ public class GameManager : MonoBehaviour {
     private void EndGame()
     {
         HasGameEnded = true;
+
+        if (EnableOnEnd) EnableOnEnd.SetActive(true);
+    }
+
+    public static bool AnyKey()
+    {
+        if (Input.anyKey) return true;
+
+        for (int j = 1; j <= 4; j++)
+        {
+            for (int i = 0; i < 20; i++)
+            {
+                if (Input.GetKey("joystick " + j + " button " + i))
+                    return true;
+            }
+        }
+
+        return false;
     }
 }
