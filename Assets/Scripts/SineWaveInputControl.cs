@@ -21,6 +21,8 @@ public class SineWaveInputControl : MonoBehaviour {
 
 	// Update is called once per frame
 	private void Update () {
+        if (GameManager.Instance.HasGameEnded) return;
+
         if (!sineWave) return;
 
         var verticalInput = VerticalAxis != "" ? Input.GetAxis(VerticalAxis) : 0f;

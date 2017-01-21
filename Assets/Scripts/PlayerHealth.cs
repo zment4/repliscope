@@ -21,12 +21,13 @@ public class PlayerHealth : MonoBehaviour {
 
     private void Update()
     {
+        if (GameManager.Instance.HasGameEnded) return;
+
         float distance = (LeftSineWaveColorCompare.DistanceNormalized + RightSineWaveColorCompare.DistanceNormalized) - 0.5f;
         Distance = distance;
 
         CurrentHealth -= distance * Time.deltaTime * HealthSpeed;
         CurrentHealth = Mathf.Clamp(CurrentHealth, 0f, MaxHealth);
-        if (CurrentHealth > MaxHealth) Debug.LogError("!");
 
         healthSlider.Position = CurrentHealth * healthSlider.Height;
     }
