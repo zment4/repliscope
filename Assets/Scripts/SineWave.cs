@@ -35,8 +35,6 @@ public class SineWave : MonoBehaviour {
         WaveLength = Mathf.Clamp(WaveLength, MinWavelength, MaxWavelength);
         Amplitude = Mathf.Clamp(Amplitude, MinAmplitude, MaxAmplitude);
 
-//        OArea.x += HorizontalSpeed * Time.deltaTime;
-
         texture = CreateSineWaveTexture(Width, Height, WaveLength, Amplitude, texture);
     }
 

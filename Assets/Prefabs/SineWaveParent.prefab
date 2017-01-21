@@ -270,6 +270,7 @@ MonoBehaviour:
   Target: {fileID: 114772977655426656}
   BaseColor: {r: 0.81568635, g: 0.17254902, b: 0.17254902, a: 1}
   TargetColor: {r: 0.347, g: 0.400546, b: 1, a: 1}
+  DistanceFactor: 1
 --- !u!114 &114420293034860692
 MonoBehaviour:
   m_ObjectHideFlags: 1
