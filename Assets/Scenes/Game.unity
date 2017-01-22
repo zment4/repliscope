@@ -375,6 +375,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: cd2b30a0078fd014ea401c91b2c1cb58, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  InputDelay: 0.5
 --- !u!1 &453644605
 GameObject:
   m_ObjectHideFlags: 0
@@ -916,11 +917,12 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   SineWave: {fileID: 0}
   SineWaveColorCompare: {fileID: 732601864}
-  DistanceScale: 440
+  BaseFrequency: 440
+  FrequencyScale: 440
+  BaseGain: 0.02
+  GainScale: 0.01
   PhaseShift: 0
   MonoMode: 1
-  frequency: 440
-  gain: 0.01
 --- !u!82 &1555729847
 AudioSource:
   m_ObjectHideFlags: 0
@@ -1226,7 +1228,7 @@ MeshRenderer:
   m_LightProbeUsage: 1
   m_ReflectionProbeUsage: 1
   m_Materials:
-  - {fileID: 2100000, guid: 8a48e7a8b514f534f836ac47b48d442d, type: 2}
+  - {fileID: 2100000, guid: 88ca7d215372b7e418e20c73d1cfcdfd, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -1360,11 +1362,12 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   SineWave: {fileID: 0}
   SineWaveColorCompare: {fileID: 249232359}
-  DistanceScale: 440
+  BaseFrequency: 440
+  FrequencyScale: 440
+  BaseGain: 0.02
+  GainScale: 0.01
   PhaseShift: 0
   MonoMode: 0
-  frequency: 440
-  gain: 0.01
 --- !u!82 &1818404116
 AudioSource:
   m_ObjectHideFlags: 0

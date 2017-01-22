@@ -34,14 +34,14 @@ public class GameManager : MonoBehaviour {
         Instance = null;
     }
 
-    public int CurrentScore;
+    public float CurrentScore;
     public bool HasGameEnded;
 
     private void Update()
     {
         if (HasGameEnded) return;
 
-        CurrentScore = Mathf.RoundToInt(Time.time - startTime);
+        CurrentScore += Time.deltaTime * (1f + PlayerHealth.CurrentHealth);
 
         if (PlayerHealth.CurrentHealth <= 0f)
         {
@@ -58,15 +58,15 @@ public class GameManager : MonoBehaviour {
         if (EnableOnEnd) EnableOnEnd.SetActive(true);
     }
 
-    public static bool AnyKey()
+    public static bool AnyKeyDown()
     {
-        if (Input.anyKey) return true;
+        if (Input.anyKeyDown) return true;
 
         for (int j = 1; j <= 4; j++)
         {
             for (int i = 0; i < 20; i++)
             {
-                if (Input.GetKey("joystick " + j + " button " + i))
+                if (Input.GetKeyDown("joystick " + j + " button " + i))
                     return true;
             }
         }

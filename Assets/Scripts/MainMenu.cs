@@ -4,8 +4,19 @@ using UnityEngine;
 using UnityEngine.SceneManagement;
 
 public class MainMenu : MonoBehaviour {
+    public string SceneToLoad;
+    public bool AutoLoad = false;
+    public float AutoLoadDelay = 3f;
+
+    float startTime;
+
+    private void Awake()
+    {
+        if (AutoLoad) startTime = Time.time;
+    }
+
 	void Update () {
-        if (GameManager.AnyKey())
-            SceneManager.LoadScene("Game");
+        if ((AutoLoad && Time.time - startTime > AutoLoadDelay) || GameManager.AnyKeyDown())
+            SceneManager.LoadScene(SceneToLoad);
 	}
 }

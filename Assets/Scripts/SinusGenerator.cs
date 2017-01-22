@@ -1,18 +1,23 @@
 ﻿using UnityEngine;
 using System;  // Needed for Math
 
+// got this from http://www.develop-online.net/tools-and-tech/procedural-audio-with-unity/0117433
 public class SinusGenerator : MonoBehaviour
 {
     public SineWave SineWave;
     public SineWaveColorCompare SineWaveColorCompare;
-    public float DistanceScale = 440;
+    public float BaseFrequency = 440f;
+    public float FrequencyScale = 440f;
+    public float BaseGain = 0.01f;
+    public float GainScale = 0.01f;
+
     public bool PhaseShift = false;
     public enum MonoModeEnum { Right, Left, Stereo };
     public MonoModeEnum MonoMode;
 
     // un-optimized version
-    public double frequency = 440;
-    public double gain = 0.05;
+    double frequency = 440;
+    double gain = 0.05;
 
     private double increment;
     private double phase;
@@ -23,7 +28,7 @@ public class SinusGenerator : MonoBehaviour
         var waveLenT = SineWave ? (SineWave.WaveLength - SineWave.MinWavelength) / (SineWave.MaxWavelength - SineWave.MinWavelength) : 1f;
 
         // update increment in case frequency has changed
-        increment = (frequency + waveLenT * DistanceScale) * 2 * Math.PI / sampling_frequency;
+        increment = (frequency + waveLenT * FrequencyScale) * 2 * Math.PI / sampling_frequency;
         for (var i = 0; i < data.Length; i = i + channels)
         {
             phase = phase + increment;
@@ -51,7 +56,11 @@ public class SinusGenerator : MonoBehaviour
     private void Update()
     {
         if (SineWaveColorCompare)
-            frequency = 440 + SineWaveColorCompare.DistanceNormalized * DistanceScale;
+        {
+            var d = SineWaveColorCompare.DistanceNormalized;
+            frequency = BaseFrequency + d * FrequencyScale;
+            gain = BaseGain + d * GainScale;
+        }
     }
 }
 

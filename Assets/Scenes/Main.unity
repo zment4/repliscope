@@ -756,11 +756,12 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   SineWave: {fileID: 887556931}
   SineWaveColorCompare: {fileID: 0}
-  DistanceScale: 880
+  BaseFrequency: 440
+  FrequencyScale: 440
+  BaseGain: 0.02
+  GainScale: 0.01
   PhaseShift: 0
   MonoMode: 1
-  frequency: 440
-  gain: 0.05
 --- !u!1 &1795023011
 GameObject:
   m_ObjectHideFlags: 0
@@ -860,6 +861,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0cc3ff6331d1b6642b29c846b7111c96, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  SceneToLoad: Game
+  AutoLoad: 0
+  AutoLoadDelay: 3
 --- !u!1 &1944643024
 GameObject:
   m_ObjectHideFlags: 0
@@ -1009,11 +1013,12 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   SineWave: {fileID: 1944643026}
   SineWaveColorCompare: {fileID: 0}
-  DistanceScale: 880
+  BaseFrequency: 440
+  FrequencyScale: 440
+  BaseGain: 0.02
+  GainScale: 0.01
   PhaseShift: 0
   MonoMode: 0
-  frequency: 440
-  gain: 0.05
 --- !u!82 &1944643032
 AudioSource:
   m_ObjectHideFlags: 0

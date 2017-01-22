@@ -20,7 +20,7 @@ public class HighScoreAccessor : MonoBehaviour {
 
         if (GameManager.Instance.CurrentScore > score)
         {
-            score = GameManager.Instance.CurrentScore;
+            score = Mathf.RoundToInt(GameManager.Instance.CurrentScore);
 
             using (var sw = new StreamWriter(fullPath))
             {
